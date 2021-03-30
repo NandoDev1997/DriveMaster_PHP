@@ -15,8 +15,9 @@
 </div>
 <script>
     $(document).ready(function() {
-        $("#titulo_page").change(function() {
-            $("#titulo_page").text('Dasboard')
+        $("#pag_inicio").change(function() {
+            $("#pag_inicio").addClass('active');
+            $("#titulo_page").text('Inicio')
         }).trigger('change');
     });
 </script>
