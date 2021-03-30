@@ -21,6 +21,7 @@ class ControladorPlantilla
         if (isset($_GET['pagina'])) {
             if (file_exists(RUTA_APP . '/view/templates/'.$_GET['pagina'].'.php')) {
                 include RUTA_APP . '/view/templates/' . $_GET['pagina'] . '.php';
+                unset($_GET['pagina']);
             }else{
                 include RUTA_APP . '/view/templates/404.php';
             }

@@ -5,14 +5,18 @@ require_once (RUTA_APP. '/control/plantilla_control.php');
 
 
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $params = array(
-        'email'     => trim($_POST['email']),
-        'password'  => md5 (trim($_POST['password'])),
-    );
-    $model = new ControladorModelo();
-    $login = $model->obtenerDatosLogin($params);
-}
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $params = array(
+            'email'     => trim($_POST['email']),
+            'password'  => md5 (trim($_POST['password'])),
+        );
+        $model = new ControladorModelo();
+        $login = $model->obtenerDatosLogin($params);
+    }
+
+
+
 
 $error_login ='';
 if (isset($login) && $login == false){
@@ -24,10 +28,16 @@ if (isset($login) && $login == false){
         session_start();
     }
     $_SESSION['usuario'] = $login;
-    header('Location: http://localhost/~lfmorales/DriveMaster_PHP/');//
-
+    echo '
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+        window.location = "index.php?pagina=inicio"
+    </script>
+    ';
 }
-include (RUTA_APP. '/view/templates/login.php');
+include (RUTA_APP. '/view/login.php');
 
 
 ?>
