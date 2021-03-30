@@ -1,14 +1,17 @@
 <?php
+if (!isset($_SESSION)) {
+    session_start();
+}
 class ControladorPlantilla
 {
     /* ------------------------- LLamada a la plantilla ------------------------- */
     
     function router()
     {
-        if (isset($_SESSION) && $_SESSION['usuario'] != null){
+        if (isset($_SESSION['usuario']) && $_SESSION['usuario'] != ''){
             include RUTA_APP.'/view/plantilla.php';
         }else{
-            include RUTA_APP . '/view/templates/login.php';
+            include RUTA_APP . '/control/login_control.php';
         }
         return true;
     }

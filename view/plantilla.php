@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -65,6 +64,33 @@
             <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
           </div>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-bell"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-header"><?php echo $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellido']; ?></span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-envelope mr-2"></i> 4 new messages
+              <span class="float-right text-muted text-sm">3 mins</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-users mr-2"></i> 8 friend requests
+              <span class="float-right text-muted text-sm">12 hours</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-file mr-2"></i> 3 new reports
+              <span class="float-right text-muted text-sm">2 days</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="logout.php" class="dropdown-item dropdown-footer">Cerrar sessión</a>
+          </div>
+        </li>
+
       </ul>
     </nav>
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -79,10 +105,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="img/user.png" class="img-circle elevation-2" alt="User Image" />
+            <img src="<?php echo 'img/users/'.$_SESSION['usuario']['imagen'];?>" class="img-circle elevation-2" alt="User Image" />
           </div>
           <div class="info">
-            <a href="#" class="d-block">Usuario Activo</a>
+            <a href="#" class="d-block"><?php echo $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellido']; ?></a>
           </div>
         </div>
         <!-- Sidebar Menu -->

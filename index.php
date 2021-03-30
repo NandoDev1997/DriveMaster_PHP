@@ -1,15 +1,10 @@
 <?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require_once ('config/config.php');
 require_once ('control/plantilla_control.php');
 require_once ('lib/database.php');
-session_start();
-$_SESSION['usuario'] = 'Nando';
 $plantilla = new ControladorPlantilla();
-// $db = new Database();
-// $query = 'SELECT * FROM usuarios';
-// $users = $db->getRow($query);
-// echo '<pre>';
-// print_r($users);
-// echo '</pre>';
 $plantilla->router();
 ?>

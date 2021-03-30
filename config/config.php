@@ -2,8 +2,8 @@
 
 // configuracion de acceso a la base de datos
 define('DB_HOST', 'localhost');
-define('DB_USUARIO', 'NandoDev1997');
-define('DB_PASSWORD', 'ASDqwe123...');
+define('DB_USUARIO', 'root');
+define('DB_PASSWORD', 'ictcadmin');
 define('DB_NAME', 'DriveMaster');
 
 // ruta de la aplicacion

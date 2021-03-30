@@ -1,13 +1,13 @@
 <?php 
 require_once RUTA_APP.'/lib/database.php';
 
-class Main_model
+class Main_model extends Database
 {
     
     function obtenerUsuarioLogin($params)
     {
         $database = new Database();
-        $sqlstring = "
+        $query = "
         SELECT * 
         FROM 
         usuarios
@@ -15,7 +15,7 @@ class Main_model
         email = '$params[email]'
         AND password = '$params[password]'
         ";
-        $result = $database->getRow($sqlstring);
+        $result = $database->getRow($query);
         return $result;
     }
     
