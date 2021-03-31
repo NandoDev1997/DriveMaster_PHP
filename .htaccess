@@ -1,0 +1,4 @@
+#cambiar página de inicio por defecto
+IndexIgnore *
+DirectoryIndex index.php
+ErrorDocument 404 /~lfmorales/DriveMaster_PHP/error.php

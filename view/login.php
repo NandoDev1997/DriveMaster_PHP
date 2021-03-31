@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +14,6 @@
   <script src="js/adminlte.min.js"></script>
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
-
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
@@ -24,12 +22,7 @@
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">Ingresa tus datos para iniciar sesión</p>
-
-
-
-
-        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" novalidate>
-
+        <form action="" method="post" novalidate>
           <div class="input-group mb-3">
             <input type="email" name="email" class="form-control" placeholder="Email" required>
             <div class="input-group-append">
@@ -38,7 +31,6 @@
               </div>
             </div>
           </div>
-
           <div class="input-group mb-3">
             <input type="password" name="password" class="form-control" placeholder="Password">
             <div class="input-group-append">
@@ -47,7 +39,25 @@
               </div>
             </div>
           </div>
-          <?php echo $error_login; ?>
+          <?php
+          if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $login = ControladorLogin::obtenerLogin();
+          }
+          if (isset($login) && $login == false) {
+            echo '<div class="alert alert-danger ">
+            Verifique su email y contraseña.
+            </div>';
+            echo '
+            <script>
+                if (window.history.replaceState) {
+                    window.history.replaceState(null, null, window.location.href);
+                }
+            </script>
+            ';
+          } elseif (isset($login) && $login != false) {
+            ControladorLogin::verificarLogin($login);
+          }
+          ?>
           <div class="row">
             <div class="col-8">
             </div>
@@ -55,19 +65,15 @@
               <button type="submit" class="btn btn-primary btn-block">Sign In</button>
             </div>
           </div>
-
         </form>
-
         <p class="mb-1">
           <a href="forgot-password.html">Olvidé mi contraseña</a>
         </p>
         <p class="mb-0">
           <a href="register.html" class="text-center">Registrar nuevo usuario</a>
         </p>
-        
       </div>
     </div>
   </div>
 </body>
-
 </html>

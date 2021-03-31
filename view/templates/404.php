@@ -20,8 +20,8 @@
 <script>
   $(document).ready(function() {
     $("#pag_inicio").change(function() {
-      $("#titulo_page").text('404 pagina de error')
-      $("#breadcum_second").text('404 pagina de error')
+      $("#titulo_page").text('404 Pagina no encontrada')
+      $("#breadcum_second").text('404 Pagina no encontrada')
     }).trigger('change');
   });
 </script>

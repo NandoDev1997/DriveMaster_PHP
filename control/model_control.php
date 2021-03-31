@@ -4,7 +4,7 @@ require_once (RUTA_APP. '/model/main_model.php');
 class ControladorModelo
 {
 
-    function obtenerDatosLogin($params)
+    static public function obtenerDatosLogin($params)
     {
         $model = new Main_model();
         $model->filter($params);

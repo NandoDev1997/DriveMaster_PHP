@@ -11,7 +11,7 @@ class ControladorPlantilla
         if (isset($_SESSION['usuario']) && $_SESSION['usuario'] != ''){
             include RUTA_APP.'/view/plantilla.php';
         }else{
-            include RUTA_APP . '/control/login_control.php';
+            include RUTA_APP . '/view/login.php';
         }
         return true;
     }

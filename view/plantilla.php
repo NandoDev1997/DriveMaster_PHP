@@ -11,8 +11,15 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
   <!-- REQUIRED SCRIPTS -->
   <script src="js/jquery/jquery.min.js"></script>
-  <script src="js/adminlte.min.js"></script>
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables -->
+  <script src="js/adminlte.min.js"></script>
+  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -67,7 +74,7 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-bell"></i>
+          <i class="fas fa-user-circle"></i> <?php echo $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellido']; ?> <i class="far fa-caret-square-down fa-xs"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-header"><?php echo $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellido']; ?></span>
@@ -87,7 +94,7 @@
               <span class="float-right text-muted text-sm">2 days</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="logout.php" class="dropdown-item dropdown-footer">Cerrar sessión</a>
+            <a href="logout.php" class="dropdown-item dropdown-footer">Cerrar sessión <i class="fas fa-sign-out-alt"></i></a>
           </div>
         </li>
 
@@ -95,7 +102,7 @@
     </nav>
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="<?php RUTA_APP . 'index.php' ?>" class="brand-link">
+      <a href="<?php echo RUTA_HOST; ?>" class="brand-link">
         <img src="img/favicon.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 0.8" />
         <span class="brand-text font-weight-light">DriveMaster</span>
       </a>
@@ -115,13 +122,13 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="index.php?pagina=inicio" class="nav-link" id="pag_inicio">
+              <a href="?pagina=inicio" class="nav-link" id="pag_inicio">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Inicio</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="index.php?pagina=archivos_publicos" class="nav-link" id="pag_archivos_publicos">
+              <a href="?pagina=archivos_publicos" class="nav-link" id="pag_archivos_publicos">
                 <i class="nav-icon fas fa-folder-open"></i>
                 <p>Archivos públicos</p>
               </a>
@@ -150,13 +157,13 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="index.php?pagina=usuarios" class="nav-link" id="pag_usuarios">
+              <a href="?pagina=usuarios" class="nav-link" id="pag_usuarios">
                 <i class="nav-icon fas fa-users"></i>
                 <p>Usuarios</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="index.php?pagina=configuracion" class="nav-link" id="pag_configuracion">
+              <a href="?pagina=configuracion" class="nav-link" id="pag_configuracion">
                 <i class="nav-icon fas fa-cogs"></i>
                 <p>Configuración</p>
               </a>
@@ -192,7 +199,7 @@
 
       <!-- CONTENIDO -->
       <div class="content">
-        <div class="container-fluid">
+        
         <?php
           $plantilla = new ControladorPlantilla();
           $plantilla->cargarVista();
@@ -204,7 +211,7 @@
           </script>
           ';
         ?>
-        </div>
+        
       </div>
       <!-- CONTENIDO -->
     </div>
