@@ -1,5 +1,5 @@
 <?php 
-require_once RUTA_APP.'/lib/database.php';
+require_once RUTA_APP.'/database/database.php';
 
 class Main_model extends Database
 {
